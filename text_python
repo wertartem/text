@@ -26,3 +26,7 @@ with open("dupli.txt", "r") as fin:
         with open("dupli1.txt", "a") as finpus:
         #for plus44 in sadd:
             finpus.write(sadd+"#"+'\n')
+===================================================
+with open("dupli_urls.txt", "r") as fin: 
+    asddd = fin.read().split('\n')
+    print(asddd)
