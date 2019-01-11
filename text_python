@@ -1,0 +1,28 @@
+in_file_name = 'mail1.txt'
+out_file_name = 'Auton_vuokraus.txt'
+with open(in_file_name) as fin:
+    er = fin.read()
+    for lines in er.split('\n'):
+        for linezz in lines.split(','):
+            with open(out_file_name, 'a') as finsave:
+                finsave.write(linezz +"#\n")
+======================================================================
+simbol =asddd
+#simbol = ('oe', 'uo', 'fi', 'oa', "ru","riikka.mehi")
+with open("Auton_vuokraus.txt", "r") as fin: 
+    www = fin.read()
+for string in www.split('\n'):
+    for i in simbol:
+        string = string.replace(i, '')
+    if string:
+        with open("Auton_vuokraus_save.txt",'a') as file_handler23:
+            file_handler23.write(string+"\n")
+==========================================================                            
+with open("dupli.txt", "r") as fin:
+    for sadd in fin.readlines():
+    #www44 = fin.read().split('\n')
+    #sadd = ','.join(www44)
+    #for sadd in www44:
+        with open("dupli1.txt", "a") as finpus:
+        #for plus44 in sadd:
+            finpus.write(sadd+"#"+'\n')
