@@ -1,0 +1,181 @@
+записать - в тхт файл
+______________________________________________-
+with open("9_2.txt",'w') as file_handler23:
+    file_handler23.write('\na\nb\nc\n')
+---------------------------------------------
+with open('browsers.txt', 'w') as f:  
+    web_browsers = ['Firefox\n', 'Chrome\n', 'Edge\n']
+    f.writelines(web_browsers)
+--------------------------------------------------------    
+with open('browsers.txt', 'w') as f:  
+    web_browsers = ['Firefox\n', 'Chrome\n', 'Edge\n']
+    f.writelines("%s\n" % line for line in web_browsers)
+
+
+дописать в тхт файл 
+_____________________________________________--
+with open("9_2.txt",'a') as file_handler23:
+    file_handler23.write('\na\nb\nc\n')
+открыть файл (не цикл)
+--------------------------------------------------
+with open("9_2.txt",'r') as file_handler2:
+    www = file_handler2.read()    
+-------------------------------------------------------    
+открыть в цикле 
+with open("9_3.txt",'r') as file_handler4:
+    for line4 in file_handler4:
+        print(line4, end="")
+____________________________________________________--
+количество строк
+with open("09122018_1",'r') as file_handler4:
+        print(sum(1 for _ in file_handler4))
+with open('09122018_1.txt') as myfile:
+    count = sum(1 for line in myfile)
+    print(count)
+count=0
+with open ('09122018_1.txt','rb') as f:
+    for line in f:
+        count+=1
+print (count)            
+------------------------------------------------------------------
+соеденить строки 2 текстовых файла
+f = [l.strip() for l in open('9_2.txt').readlines()]
+for sd in f:
+    with open("9_3.txt",'r') as file_handler45:
+        for line45 in file_handler45:
+            asd = (sd+line45)
+            with open("9_4.txt",'a') as file_handler888:
+                eee = file_handler888.write(asd)
+with open("9_4.txt",'r') as file_handler4s:
+    for line4ss in file_handler4s:
+        print(line4ss, end="")        
+====================================================================
+Удаление дубликатов строк из файла сохраняя порядок строк
+
+from collections import OrderedDict
+
+filename = r'C:\words.txt'
+with open(filename) as file:
+    uniq = OrderedDict.fromkeys(file)
+with open(filename, 'w') as file:
+    file.writelines(uniq)        
++++++++++++++++=+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=    
+Удалить дубли в строке
+Способ лучше варианта с set тем, что itertools.groupby сохраняет тот порядок, в котором элементы шли в изначальной последовательности. В то время, как set не гарантирует сохранения порядка.
+
+from itertools import groupby
+
+x = ['a', 'a', 'a', 'f', 'h', 'k', 'k']
+new_x = [el for el, _ in groupby(x)]
+print(new_x)
+
+тупо удалить дубли
+
+qqq = ['Mike Smith', '1', '1','2','2', 'USA', 'USA', 'sSA']
+aaa = list(set(qqq))
+print(aaa)
+=========================================================================
+удалить дубли с тхт и записать новый тхт
+=============================================================================
+simbol = ('oe', 'uo', 'ou', 'oa', ".ru")
+with open("noduble.txt", "r") as fin: 
+    www = fin.read()
+for string in www.split('\n'):
+    for i in simbol:
+        string = string.replace(i, '')
+    if string:
+        #zxc = string
+        #print(zxc)
+        with open("result.txt",'a') as file_handler23:
+        #for lss in zxc:
+            file_handler23.write(string+"\n")
+with open("result.txt",'r') as file_handler4s:
+    for line4ss in file_handler4s:
+        print(line4ss, end="") 
+===============================================================================        
+смотри ниже - этот может не работать (фозможно кодировка файла)
+удаляет дубли в строке и записывает новый файл(тхт)
+было 
+sievitalo.fi|003723820036@sahkopostilaskut.fi,myynti@sievitalo.fi,myynti@sievitalo.fi,myynti@sievitalo.fi,myynti@sievitalo.fi
+стало
+sievitalo.fi|003723820036@sahkopostilaskut.fi,myynti@sievitalo.fi 
+from itertools import groupby
+results = []
+www = ""
+zxcv = []
+with open("result.txt",'r') as file_handler24:
+    www = file_handler24.read()
+for line in www.split('\n'):
+    results.append(line.split(','))
+for line33 in results:
+    new_line33 = [el for el, _ in groupby(line33)]
+    joined = ','.join(new_line33)
+    with open("result999.txt",'a') as file_handler23:
+        file_handler23.write(joined+"\n")
+with open("result999.txt",'r') as file_handler4s:
+    for line4ss in file_handler4s:
+        print(line4ss, end="")
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+удаляет дубли - рабочий 
+from itertools import groupby
+results = []
+www = ""
+zxcv = []
+aaa = ''
+with open("996655.txt",'r') as file_handler24:
+    www = file_handler24.read()
+#print(www)    
+for line in www.split('\n'):
+    results.append(line.split(','))
+    sss = results
+#print(results)
+for linew in sss:
+    aaa = list(set(linew))
+    joined = ','.join(aaa)
+    with open("ssdd.txt",'a') as file_handler23:
+        file_handler23.write(joined+"\n")
+with open("ssdd.txt",'r') as file_handler4s:
+    for line4ss in file_handler4s:
+        print(line4ss, end="")         
+==================================================================================
+убрать текст и записать новый файл
+with open("jpg_1.txt", "r") as fin:
+    www = fin.read()
+for string in www.split('\n'):
+    wert = re.sub('[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.\w+\d,', '', string)
+    with open("xxx_1.txt",'a') as file_handler23:
+        file_handler23.write(wert+"\n")        
+===================================
+=ПОДСТАВИТЬ(A1; ",";СИМВОЛ(10))
+удалить символы и записать новый файл
+simbol = (',oe', ',uo', ',ou', ',oa', ",.ru",",riikka.mehi")
+with open("02020.txt", "r") as fin: 
+    www = fin.read()
+for string in www.split('\n'):
+    for i in simbol:
+        string = string.replace(i, ',www')
+    if string:
+        with open("result2711.txt",'a') as file_handler23:
+            file_handler23.write(string+"\n")
+with open("result2711.txt",'r') as file_handler4s:
+    for line4ss in file_handler4s:
+        print(line4ss, end="")  
+===============================================================
+fw = ()
+fw = [l.strip() for l in open('twentyfour').readlines()]
+ass = ','.join(fw)
+qqqsss = ass.split(',')
+print(qqqsss)   
+=================================================================
+было 
+"https://bla.bla/....jpg"
+стало
+<img src="https://bla.bla/....jpg">\n
+in_file_name = 'urls.txt'
+out_file_name = 'img_urls.txt'
+
+with open(in_file_name) as f_in:
+    with open(out_file_name, 'w') as f_out:
+        for line in f_in:
+            line = line.rstrip()
+            f_out.write('<img src={}>\n'.format(line))            
