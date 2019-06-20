@@ -178,4 +178,13 @@ with open(in_file_name) as f_in:
     with open(out_file_name, 'w') as f_out:
         for line in f_in:
             line = line.rstrip()
-            f_out.write('<img src={}>\n'.format(line))            
+            f_out.write('<img src={}>\n'.format(line))  
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ добавить числа к тексту
+ f = [l.strip() for l in open('in_url.txt').readlines()]
+for sd in f:
+    for s in range(2, 21):
+        asd = (sd+'page-'+str(s))
+        with open("Germany.txt",'a') as file_handler888:
+            file_handler888.write(asd+"\n")
+ ====================================================           
