@@ -188,3 +188,25 @@ for sd in f:
         with open("Germany.txt",'a') as file_handler888:
             file_handler888.write(asd+"\n")
  ====================================================           
+from itertools import groupby
+import re
+def choose_biggest(file_0):
+    with open(file_0, "r") as fin:
+        asw = fin.read()
+        result1 = re.sub(r'\n', ',', asw)
+        text = result1.split(',')
+        result1 = list(set(text))
+        return result1   
+def textmail(file_0):
+    cvv = choose_biggest(file_0)
+    jd = ','.join(cvv)
+    for stri in jd.split(','):
+        #fff = stri.upper()        
+        yield stri
+def textz(file_0):            
+    aaa = textmail(file_0)
+    with open("mail_gotovo44.txt",'a') as file_handler23:
+        joined = '\n'.join(aaa)
+        file_handler23.write(joined)
+        print(joined)
+textz('Sweden.txt') 
