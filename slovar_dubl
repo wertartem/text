@@ -1,0 +1,33 @@
+Итак, скажем, new1 говорит:
+
+John 1234 AccountA 10/11/2019
+Max 3456 AccountA 10/11/2019
+Stuart 8769 AccountA 10/11/2019
+new2 говорит:
+
+John 1234 AccountA 10/12/2019
+Milton 0011 AccountB 10/12/2019
+new3 или newoutput должны быть:
+
+- Max 3456 AccountA 10/11/2019
+- Stuart 8769 AccountA 10/11/2019
++ Milton 0011 AccountB 10/12/2019
+
+
+file1_lines = [l.strip() for l in open('new1.txt').readlines()]
+file1_dict = {' '.join(line.split(' ')[:3]) : line for line in file1_lines}
+
+file2_lines = [l.strip() for l in open('new2.txt').readlines()]
+file2_dict = {' '.join(line.split(' ')[:3]) : line for line in file2_lines}
+
+
+file1_keys = file1_dict.keys()
+file2_keys = file2_dict.keys()
+
+added = file2_keys - file1_keys
+removed = file1_keys - file2_keys
+
+for line in removed:
+    print("-", file1_dict[line])
+for line in added:
+    print("+", file2_dict[line])
